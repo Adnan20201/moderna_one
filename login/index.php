@@ -1,0 +1,153 @@
+<?php
+session_start();
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login V1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" href="./inc/img/favicon.ico" />
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/animate.css">
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/hamburgers.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/select2.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/util.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./inc/css/main.css">
+
+  <meta name="robots" content="noindex, follow">
+  <script>
+    (function(w, d) {
+      ! function(a, e, t, r, z) {
+        a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zarazData.tracks = [], a.zaraz = {
+          deferred: []
+        };
+        var s = e.getElementsByTagName("title")[0];
+        s && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a.dataLayer = a.dataLayer || [], a.zaraz.track = (e, t) => {
+          for (key in a.zarazData.tracks.push(e), t) a.zarazData["z_" + key] = t[key]
+        }, a.zaraz._preSet = [], a.zaraz.set = (e, t, r) => {
+          a.zarazData["z_" + e] = t, a.zaraz._preSet.push([e, t, r])
+        }, a.dataLayer.push({
+          "zaraz.start": (new Date).getTime()
+        }), a.addEventListener("DOMContentLoaded", (() => {
+          var t = e.getElementsByTagName(r)[0],
+            z = e.createElement(r);
+          z.defer = !0, z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t)
+        }))
+      }(w, d, 0, "script");
+    })(window, document);
+  </script>
+</head>
+
+<body>
+  <div class="limiter ">
+    <div class="container-login100 ">
+      <div class="wrap-login100 w-75">
+        <div class="login100-pic js-tilt " data-tilt>
+          <img src="./inc/img/img-01.webp" alt="IMG">
+        </div>
+
+        <form class="login100-form validate-form col-5 mx-auto" action="./login_store.php" method="POst">
+          <span class="login100-form-title">
+            Member Login
+          </span>
+
+          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" name="email" placeholder="Email">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </span>
+            <span class="text-danger">
+              <?= isset($_SESSION['error_email']) ? $_SESSION['error_email'] : '' ?>
+            </span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="password" placeholder="Password">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </span>
+            <span class="text-danger">
+              <?= isset($_SESSION['error_password']) ? $_SESSION['error_password'] : '' ?>
+            </span>
+
+          </div>
+
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" name="submit">
+              Login
+            </button>
+          </div>
+          <div class="text-center p-t-12">
+            <span class="txt1">
+              Forgot
+            </span>
+            <a class="txt2" href="#">
+              Username / Password?
+            </a>
+          </div>
+          <div class="text-center p-t-136">
+            <a class="txt2" href="./singup_form.php">
+              <h3>Create your Account</h3>
+              <i class="fa-regular fa-arrow-right"></i>
+            </a>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./inc/js/jquery-3.2.1.min.js"></script>
+
+  <script src="./inc/js/popper.js"></script>
+  <script src="./inc/js/bootstrap.min.js"></script>
+
+  <script src="./inc/js/select2.min.js"></script>
+
+  <script src="./inc/js/tilt.jquery.min.js"></script>
+  <script>
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+  </script>
+
+  <script src="js/main.js"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"6dbe5882c8ae78c1","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<?php
+
+session_unset();
