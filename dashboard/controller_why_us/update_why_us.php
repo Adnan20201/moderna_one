@@ -20,7 +20,6 @@ if (isset($_POST['submit'])) {
   }
   else{
        
-  
     $_images_name = $_image['name'];
     $_images_array = explode('.', $_images_name);
     $_extension = end($_images_array);
@@ -31,14 +30,15 @@ if (isset($_POST['submit'])) {
     // exit();
 
     
-    $_update = "UPDATE why_us SET  id = '$_id', image='$_new_img_name',video_link='$_video_link',title_one ='$_title_one',text_one='$_text_one',icon_one='$_icon_one'',title_two ='$_title_two',text_two ='$_text_two, icon_two ='$_icon_two' WHERE id = '$_id'";
+    $_update = "UPDATE why_us SET  image ='$_new_img_name', video_link ='$_video_link', title_one ='$_title_one', text_one ='$_text_one',icon_one ='$_icon_one', title_two = '$_title_two', text_two ='$_text_two', icon_two ='$_icon_two' where id ='$_id'";
 
+   
     $_query = mysqli_query($_connect, $_update);
 
     if($_query){
-      header('location: ./all_why_us.php');
+      header('location: ../all_why_us.php');
     }else{
-      echo "no";
+      echo "not";
     }
   
 
